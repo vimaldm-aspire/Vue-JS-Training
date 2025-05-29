@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Design Homepage1",
+    "description": "Create 1a responsive homepage layout wwith header, footer, and navigation.",
+    "status": "In Progress"
+  },
+  {
+    "id": 2,
+    "title": "Fix Login Bug",
+    "description": "Resolve issue where users are unable to log in with correct credentials.",
+    "status": "Done"
+  },
+  {
+    "id": 3,
+    "title": "Set Up Database",
+    "description": "Initialize MongoDB and define schema for users and tasks",
+    "status": "In Progress"
+  },
+  {
+    "id": 4,
+    "title": "Create API Endpoints",
+    "description": "Develop RESTful APIs for tasks and user authentication.",
+    "status": "Todo"
+  },
+  {
+    "id": 5,
+    "title": "Implement Task Filtering",
+    "description": "Add filters by status and priority to the task list view.",
+    "status": "In Progress"
+  },
+  {
+    "id": 6,
+    "title": "Write Unit Tests",
+    "description": "Add unit tests for user registration and task creation modules.",
+    "status": "Todo"
+  },
+  {
+    "id": 7,
+    "title": "Deploy to Production",
+    "description": "Deploy the application to the production server using Docker.",
+    "status": "Todo"
+  },
+  {
+    "id": 8,
+    "title": "Update README",
+    "description": "Add setup instructions, features, and API documentation to README file.",
+    "status": "Done"
+  },
+  {
+    "id": 9,
+    "title": "Add Dark Mode",
+    "description": "Implement dark mode toggle with persistent theme settings.",
+    "status": "In Progress"
+  },
+  {
+    "id": 10,
+    "title": "Enable Notifications",
+    "description": "Allow real-time notifications for task assignments and updates.",
+    "status": "Todo"
+  },
+  {
+    "id": 1748497355367,
+    "title": "Aspire Systems",
+    "description": "Aspire Systems is the Digital Transformation",
+    "status": "In Progress"
+  },
+  {
+    "id": 1748508126365,
+    "title": "asdfasdfasdfsadfasdfsadf",
+    "description": "asdfasdf",
+    "status": "In Progress"
+  }
+]
