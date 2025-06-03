@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Design Homepage1",
     "description": "Create 1a responsive homepage layout wwith header, footer, and navigation.",
-    "status": "In Progress"
+    "status": "Done"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "id": 4,
     "title": "Create API Endpoints",
     "description": "Develop RESTful APIs for tasks and user authentication.",
-    "status": "Todo"
+    "status": "In Progress"
   },
   {
     "id": 5,
@@ -39,7 +39,7 @@
     "id": 7,
     "title": "Deploy to Production",
     "description": "Deploy the application to the production server using Docker.",
-    "status": "Todo"
+    "status": "In Progress"
   },
   {
     "id": 8,
@@ -63,12 +63,6 @@
     "id": 1748497355367,
     "title": "Aspire Systems",
     "description": "Aspire Systems is the Digital Transformation",
-    "status": "In Progress"
-  },
-  {
-    "id": 1748508126365,
-    "title": "asdfasdfasdfsadfasdfsadf",
-    "description": "asdfasdf",
-    "status": "In Progress"
+    "status": "Todo"
   }
 ]

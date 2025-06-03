@@ -1,14 +1,22 @@
 [
-  {
-    "id": 1748434606837,
-    "username": "vimaldm",
-    "password": "vimaldm@123",
-    "role": "admin"
-  },
-  {
-    "id": 1748518452346,
-    "username": "vimal",
-    "password": "test",
-    "role": "admin"
-  }
+  { "id": 1748434606837, "username": "vimaldm", "password": "vimaldm@123", "role": "user" },
+  { "id": 1748518452346, "username": "vimal", "password": "test", "role": "admin" },
+  { "id": 1748600000001, "username": "alice", "password": "alice123", "role": "user" },
+  { "id": 1748600000002, "username": "bob", "password": "bob456", "role": "admin" },
+  { "id": 1748600000003, "username": "charlie", "password": "charlie789", "role": "user" },
+  { "id": 1748600000004, "username": "dave", "password": "davepass", "role": "admin" },
+  { "id": 1748600000005, "username": "eve", "password": "evepass", "role": "user" },
+  { "id": 1748600000006, "username": "frank", "password": "frank123", "role": "user" },
+  { "id": 1748600000007, "username": "grace", "password": "grace123", "role": "admin" },
+  { "id": 1748600000008, "username": "hannah", "password": "hannahpwd", "role": "user" },
+  { "id": 1748600000009, "username": "ivan", "password": "ivanpass", "role": "admin" },
+  { "id": 1748600000010, "username": "judy", "password": "judy123", "role": "user" },
+  { "id": 1748600000011, "username": "kate", "password": "katepwd", "role": "admin" },
+  { "id": 1748600000012, "username": "leo", "password": "leopass", "role": "user" },
+  { "id": 1748600000013, "username": "mia", "password": "mia123", "role": "user" },
+  { "id": 1748600000014, "username": "nina", "password": "nina456", "role": "admin" },
+  { "id": 1748600000015, "username": "oliver", "password": "olipass", "role": "user" },
+  { "id": 1748600000016, "username": "paul", "password": "paul123", "role": "admin" },
+  { "id": 1748600000017, "username": "quincy", "password": "quincypass", "role": "user" },
+  { "id": 1748600000018, "username": "rachel", "password": "rachel123", "role": "user" }
 ]

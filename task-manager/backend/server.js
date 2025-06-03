@@ -54,6 +54,60 @@ app.post('/api/register', (req, res) => {
   res.status(201).json({ success: true, user: newUser });
 });
 
+// GET all users
+app.get('/api/users', (req, res) => {
+  const users = readUsers();
+  res.json(users);
+});
+
+// POST /api/users — Add a user (for admin panel)
+app.post('/api/users', (req, res) => {
+  const { username, password, role } = req.body;
+  if (!username || !password || !role) {
+    return res.status(400).json({ success: false, message: 'All fields are required' });
+  }
+
+  const users = readUsers();
+  if (users.find(u => u.username === username)) {
+    return res.status(409).json({ success: false, message: 'Username already exists' });
+  }
+
+  const newUser = { id: Date.now(), username, password, role };
+  users.push(newUser);
+  writeUsers(users);
+  res.status(201).json({ success: true, user: newUser });
+});
+
+// PUT /api/users/:id — Update user
+app.put('/api/users/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const { username, password, role } = req.body;
+
+  const users = readUsers();
+  const index = users.findIndex(u => u.id === id);
+  if (index === -1) {
+    return res.status(404).json({ success: false, message: 'User not found' });
+  }
+
+  // Update user fields
+  users[index] = { ...users[index], username, password, role };
+  writeUsers(users);
+  res.json({ success: true, user: users[index] });
+});
+
+// DELETE /api/users/:id — Delete user
+app.delete('/api/users/:id', (req, res) => {
+  let users = readUsers();
+  const id = parseInt(req.params.id);
+  const exists = users.some(u => u.id === id);
+  if (!exists) return res.status(404).json({ success: false, message: 'User not found' });
+
+  users = users.filter(u => u.id !== id);
+  writeUsers(users);
+  res.json({ success: true });
+});
+
+
 app.get('/api/tasks', (req, res) => {
   res.json(readTasks());
 });
@@ -85,7 +139,6 @@ app.put('/api/tasks/:id', (req, res) => {
   res.json(tasks[index]);
 });
 
-// DELETE /api/tasks/:id
 app.delete('/api/tasks/:id', (req, res) => {
   let tasks = readTasks();
   const id = parseInt(req.params.id);
@@ -100,7 +153,6 @@ app.delete('/api/tasks/:id', (req, res) => {
 
   res.json({ success: true });
 });
-
 
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
