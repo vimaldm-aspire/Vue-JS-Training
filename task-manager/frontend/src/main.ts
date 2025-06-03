@@ -1,27 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import { createStore } from 'vuex';
+import store from './store'; // ✅ Correct import from store/index.ts
 import router from './router';
 import './assets/tailwind.css';
 
-// Create Vuex store
-const store = createStore({
-  state: {
-    user: null,
-  },
-  mutations: {
-    setUser(state, user) {
-      state.user = user;
-    },
-  },
-  actions: {
-    login({ commit }, user) {
-      commit('setUser', user);
-    },
-  },
-});
-
 createApp(App)
-  .use(store)
+  .use(store)   // ✅ Use full-featured store
   .use(router)
   .mount('#app');

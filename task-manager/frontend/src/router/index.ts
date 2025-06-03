@@ -5,14 +5,16 @@ import Dashboard from '../views/Dashboard.vue';
 import TaskGrid from '../components/TasksGrid.vue';
 import TaskAdd from '../components/AddTask.vue';
 import TaskEdit from '../components/EditTask.vue';
+import UserList from '../components/UserList.vue';
 
 const routes = [
-  { path: '/', component: Login },
-  { path: '/register', component: Register },
-  { path: '/dashboard', component: Dashboard },
-  { path: '/tasks', component: TaskGrid },
-  { path: '/tasks/add', component: TaskAdd },
-  { path: '/tasks/edit/:id', component: TaskEdit, props: true }
+  { path: '/', name: 'Login', component: Login },
+  { path: '/register', name: 'Register', component: Register },
+  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  { path: '/tasks', name: 'Tasks', component: TaskGrid },
+  { path: '/tasks/add', name: 'AddTask', component: TaskAdd },
+  { path: '/tasks/edit/:id', name: 'EditTask', component: TaskEdit, props: true },
+  { path: '/users', name: 'Users', component: UserList },
 ];
 
 const router = createRouter({
