@@ -1,68 +1,100 @@
 [
   {
     "id": 1,
-    "title": "Design Homepage1",
-    "description": "Create 1a responsive homepage layout wwith header, footer, and navigation.",
-    "status": "Done"
+    "title": "Design Homepage",
+    "description": "Create 1a responsive homepage layout wwith header, footer, and navigation",
+    "status": "In Progress",
+    "userId": 1748600000016
   },
   {
     "id": 2,
     "title": "Fix Login Bug",
     "description": "Resolve issue where users are unable to log in with correct credentials.",
-    "status": "Done"
+    "status": "Done",
+    "userId": 1748600000008
   },
   {
     "id": 3,
     "title": "Set Up Database",
     "description": "Initialize MongoDB and define schema for users and tasks",
-    "status": "In Progress"
+    "status": "In Progress",
+    "userId": 1748600000011
   },
   {
     "id": 4,
     "title": "Create API Endpoints",
     "description": "Develop RESTful APIs for tasks and user authentication.",
-    "status": "In Progress"
+    "status": "In Progress",
+    "userId": 1748600000003
   },
   {
     "id": 5,
     "title": "Implement Task Filtering",
     "description": "Add filters by status and priority to the task list view.",
-    "status": "In Progress"
+    "status": "In Progress",
+    "userId": 1748600000011
   },
   {
     "id": 6,
     "title": "Write Unit Tests",
     "description": "Add unit tests for user registration and task creation modules.",
-    "status": "Todo"
+    "status": "Todo",
+    "userId": 1748434606837
   },
   {
     "id": 7,
     "title": "Deploy to Production",
     "description": "Deploy the application to the production server using Docker.",
-    "status": "In Progress"
+    "status": "In Progress",
+    "userId": 1748600000007
   },
   {
     "id": 8,
     "title": "Update README",
     "description": "Add setup instructions, features, and API documentation to README file.",
-    "status": "Done"
+    "status": "In Progress",
+    "userId": 1748600000012
   },
   {
     "id": 9,
     "title": "Add Dark Mode",
     "description": "Implement dark mode toggle with persistent theme settings.",
-    "status": "In Progress"
+    "status": "In Progress",
+    "userId": 1748434606837
   },
   {
     "id": 10,
     "title": "Enable Notifications",
     "description": "Allow real-time notifications for task assignments and updates.",
-    "status": "Todo"
+    "status": "In Progress",
+    "userId": 1748600000002
   },
   {
     "id": 1748497355367,
     "title": "Aspire Systems",
     "description": "Aspire Systems is the Digital Transformation",
-    "status": "Todo"
+    "status": "Todo",
+    "userId": 1748600000009
+  },
+  {
+    "id": 1749099154448,
+    "title": "Props as Functions or Callbacks",
+    "description": "Pass a method as a prop and execute in the child",
+    "status": "Todo",
+    "userId": 1748600000010
+  },
+  {
+    "id": 1749100799107,
+    "title": "TaskGrid layout instead of floating on top",
+    "description": "If your modal is showing inside the TaskGrid layout instead of floating on top, despite using <teleport to=\"body\">, the issue is almost certainly CSS-related. Specifically, your modal's container likely does not break out of its parent layout stacking context, often caused by missing or incorrect z-index, position, or container overflow rules",
+    "status": "Todo",
+    "userId": 1748600000006
+  },
+  {
+    "id": 1749105197015,
+    "title": "Common Causes",
+    "description": "Key Points\nConcept\tExplanation\nprops\tWay to pass data from parent to child\nOne-way data flow\tProps are read-only in child components\nType checking\tHelps avoid unexpected bugs with prop validation",
+    "status": "In Progress",
+    "userId": 1748518452346
   }
 ]
