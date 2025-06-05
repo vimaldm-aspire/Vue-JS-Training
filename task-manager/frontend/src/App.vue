@@ -7,6 +7,6 @@
 <script setup>
 </script>
 
-<style scoped>
-@import './assets/tailwind.css';
+<style>
+/* unscoped */
 </style>

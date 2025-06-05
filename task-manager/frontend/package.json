@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
     "axios": "^1.9.0",
     "chart.js": "^4.4.9",
     "vee-validate": "^4.15.0",
@@ -19,12 +20,10 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.8",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vue-tsc": "^2.2.8"

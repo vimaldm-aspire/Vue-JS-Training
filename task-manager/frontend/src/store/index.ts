@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
+import { API_URL } from '../config'; // Import the config file
 
 export default createStore({
   state: {
@@ -36,25 +37,25 @@ export default createStore({
 
     // Users
     async fetchUsers({ commit }) {
-      const res = await axios.get('http://localhost:3001/api/users');
+      const res = await axios.get(`${API_URL}/users`); // Use the common API URL
       commit('setUsers', res.data);
     },
     async addUser({ dispatch }, user) {
-      await axios.post('http://localhost:3001/api/users', user);
+      await axios.post(`${API_URL}/users`, user); // Use the common API URL
       dispatch('fetchUsers');
     },
     async updateUser({ dispatch }, user) {
-      await axios.put(`http://localhost:3001/api/users/${user.id}`, user);
+      await axios.put(`${API_URL}/users/${user.id}`, user); // Use the common API URL
       dispatch('fetchUsers');
     },
     async deleteUser({ dispatch }, id) {
-      await axios.delete(`http://localhost:3001/api/users/${id}`);
+      await axios.delete(`${API_URL}/users/${id}`); // Use the common API URL
       dispatch('fetchUsers');
     },
 
     // ✅ TASKS
     async fetchTasks({ commit }) {
-      const res = await axios.get('http://localhost:3001/api/tasks');
+      const res = await axios.get(`${API_URL}/tasks`); // Use the common API URL
       commit('setTasks', res.data);
     }
   }
