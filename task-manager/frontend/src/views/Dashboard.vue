@@ -1,10 +1,10 @@
 <template>
-  <div v-if="user" class="p-4">
+  <div v-if="user" class="p-2">
     <h1 class="text-2xl font-semibold mb-4">Welcome, {{ user.username }}!</h1>
     <p class="mb-4">Here's your dashboard content.</p>
 
 <!-- Links -->
-<div class="mt-6 flex flex-wrap gap-4">
+<div class="mt-2 flex flex-wrap gap-2">
   <router-link
     to="/tasks"
     class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition duration-300 ease-in-out"
@@ -19,12 +19,9 @@
     Manage Users
   </router-link>
 </div>
-
   </div>
-  
     <!-- Task Chart -->
     <TaskChart v-if="tasks && tasks.length" :tasks="tasks" />
-
   <div v-else>
     <p>Loading...</p>
   </div>

@@ -1,6 +1,14 @@
 <template>
-  <div class="p-6 max-w-md mx-auto bg-white rounded shadow">
-    <h2 class="text-xl font-semibold mb-4">Add New Task</h2>
+  <div class="p-6 mt-10 max-w-md mx-auto bg-white rounded shadow">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">Add New Task</h2>
+      <router-link
+        to="/tasks"
+        class="text-blue-600 hover:underline text-sm"
+      >
+        View Tasks
+      </router-link>
+    </div>    
     <form @submit.prevent="handleAdd" class="space-y-4">
 
       <!-- Title Field -->

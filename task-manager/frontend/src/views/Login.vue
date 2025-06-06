@@ -1,11 +1,11 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="bg-gray-100 p-8 rounded-2xl shadow-lg max-w-md flex flex-col items-center">
+    <div class="bg-white bg-gray-100 p-8 rounded-2xl shadow-lg max-w-md flex flex-col items-center">
       <!-- Login heading -->
       <h1 class="text-3xl font-bold mb-6 text-gray-800 w-1/2 text-center">Login</h1>
 
       <!-- Form container -->
-      <form @submit.prevent="handleLogin" class="space-y-5 w-1/2">
+      <form @submit.prevent="handleLogin" class="space-y-5 w-full">
         <!-- Username input -->
         <div>
           <input

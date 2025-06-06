@@ -1,14 +1,16 @@
+// tailwind.config.js
 export default {
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   safelist: [
-    'bg-yellow-400',
-    'border-gray-300',
-    'text-red-500',
-    'text-green-600',
-  ],
+    'bg-red-500',
+    'bg-green-500',
+    'bg-blue-500',
+    'hover:bg-red-600',
+    'text-white',
+  ],  
   theme: {
     extend: {},
   },

@@ -4,23 +4,25 @@ import { API_URL } from '../config'; // Import the config file
 
 export default createStore({
   state: {
-    user: null,         // Logged-in user
+    user: JSON.parse(localStorage.getItem('user') || 'null'),         // Logged-in user
     users: [],          // User list for admin management
     tasks: []           // Task list for charts and grids
   },
 
   mutations: {
-    // Authentication
     setUser(state, user) {
       state.user = user;
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        localStorage.removeItem('user');
+      }
     },
 
-    // User list
     setUsers(state, users) {
       state.users = users;
     },
 
-    // Task list
     setTasks(state, tasks) {
       state.tasks = tasks;
     }
@@ -58,5 +60,9 @@ export default createStore({
       const res = await axios.get(`${API_URL}/tasks`); // Use the common API URL
       commit('setTasks', res.data);
     }
-  }
+  },
+  getters: {
+    currentUser: (state) => state.user,
+    isAdmin: (state) => state.user?.role === 'admin'
+  }  
 });

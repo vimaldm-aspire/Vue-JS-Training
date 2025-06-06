@@ -5,7 +5,6 @@
     <Bar :data="chartData" :options="chartOptions" />
   </div>
 </template>
-
 <script setup>
 import { computed } from 'vue';
 import { Bar } from 'vue-chartjs';
@@ -55,22 +54,44 @@ const chartData = computed(() => ({
     {
       label: 'Number of Tasks',
       data: Object.values(statusCounts.value),
-      backgroundColor: ['#facc15', '#3b82f6', '#10b981']
+      backgroundColor: ['#facc15', '#3b82f6', '#10b981'],
+      borderRadius: 12, // Rounded bars
+      borderSkipped: false
     }
   ]
 }));
 
-// Chart options
+// Chart options with tooltip and animation
 const chartOptions = {
   responsive: true,
   plugins: {
     legend: { display: true },
-    title: { display: false }
+    title: { display: false },
+    tooltip: {
+      callbacks: {
+        label: function (context) {
+          const value = context.raw;
+          const total = Object.values(statusCounts.value).reduce((a, b) => a + b, 0);
+          const percent = ((value / total) * 100).toFixed(1);
+          return `${context.label}: ${value} tasks (${percent}%)`;
+        }
+      }
+    }
+  },
+  animation: {
+    duration: 1000,
+    easing: 'easeOutBounce'
   },
   scales: {
     y: {
       beginAtZero: true,
       ticks: { stepSize: 1 }
+    }
+  },
+  elements: {
+    bar: {
+      borderRadius: 12,
+      borderSkipped: false
     }
   }
 };
