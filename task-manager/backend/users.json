@@ -1,11 +1,5 @@
 [
   {
-    "id": 1748434606837,
-    "username": "vimaldm",
-    "password": "vimaldm@123",
-    "role": "developer"
-  },
-  {
     "id": 1748518452346,
     "username": "vimal",
     "password": "test",
@@ -63,7 +57,7 @@
     "id": 1748600000009,
     "username": "ivan",
     "password": "ivanpass",
-    "role": "qa"
+    "role": "developer"
   },
   {
     "id": 1748600000010,

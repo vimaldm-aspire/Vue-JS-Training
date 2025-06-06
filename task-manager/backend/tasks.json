@@ -2,8 +2,8 @@
   {
     "id": 1,
     "title": "Design Homepage",
-    "description": "Create 1a responsive homepage layout wwith header, footer, and navigation",
-    "status": "In Progress",
+    "description": "Create 1a responsive homepage layout wwith header, footer, and navigation1",
+    "status": "Done",
     "userId": 1748600000016
   },
   {
@@ -39,7 +39,7 @@
     "title": "Write Unit Tests",
     "description": "Add unit tests for user registration and task creation modules.",
     "status": "Todo",
-    "userId": 1748434606837
+    "userId": 1748518452346
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "title": "Add Dark Mode",
     "description": "Implement dark mode toggle with persistent theme settings.",
     "status": "In Progress",
-    "userId": 1748434606837
+    "userId": 1748518452346
   },
   {
     "id": 10,
