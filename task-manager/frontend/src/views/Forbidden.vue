@@ -1,0 +1,3 @@
+<div>
+Forbidden page
+</div>

@@ -1,5 +1,6 @@
 <!-- Example: Navbar.vue -->
 <template>
+  <Suspense>
   <div class="flex justify-end p-4 bg-white shadow">
     <button
       @click="handleLogout"
@@ -8,6 +9,7 @@
       Logout
     </button>
   </div>
+  </Suspense>
 </template>
 
 <script setup lang="ts">

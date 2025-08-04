@@ -174,19 +174,30 @@
 </template>
 
 <script setup lang="ts">
+
+const EditTaskModal = defineAsyncComponent(() => import('@/components/EditTask.vue'))
+const Navbar = defineAsyncComponent(() => import('@/components/Navbar.vue'))
+const Accordion = defineAsyncComponent(() => import('@/components/Accordion.vue'))
+
 import axios from 'axios';
 import { useStore } from 'vuex';
 import { ref, computed, onMounted, watch } from 'vue';
-import EditTaskModal from '@/components/EditTask.vue';
-import Navbar from '@/components/Navbar.vue';
 import Spinner from '@/components/Spinner.vue';
-import Accordion from '@/components/Accordion.vue';
 import Toast from '@/components/Toast.vue';
+import { defineAsyncComponent } from 'vue'
+import { useAuthStore } from '@/store/auth';
 
 const store = useStore();
-const currentUser = computed(() => store.getters.currentUser);
-const isAdmin = computed(() => store.getters.isAdmin);
 const toastRef = ref();
+
+const authStore = useAuthStore();
+
+const userId = computed(() => authStore.userId);
+const isAdmin = computed(() => authStore.isAdmin);
+
+// Example use
+console.log('User ID:', userId.value);
+console.log('Is Admin:', isAdmin.value);
 
 interface Task {
   id: number;
@@ -243,14 +254,14 @@ const filteredTasks = computed(() => {
       (!filters.value.title || task.title.toLowerCase().includes(filters.value.title.toLowerCase())) &&
       (!filters.value.description || task.description.toLowerCase().includes(filters.value.description.toLowerCase())) &&
       (!filters.value.status || task.status === filters.value.status) &&
-      (!filters.value.userId || task.userId === filters.value.userId);
+      (!filters.value.userId || task.userId === +filters.value.userId); // Ensure it's a number
 
-    const isAdmin = currentUser.value.role === 'admin';
-    const isAssignedUser = task.userId === currentUser.value.id;
+    const isTaskVisible = isAdmin.value || task.userId === userId.value;
 
-    return matchesFilters && (isAdmin || isAssignedUser);
+    return matchesFilters && isTaskVisible;
   });
 });
+
 
 
 const totalPages = computed(() => Math.ceil(filteredTasks.value.length / itemsPerPage));

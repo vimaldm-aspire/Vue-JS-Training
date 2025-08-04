@@ -1,4 +1,5 @@
 <template>
+  <Suspense>
   <teleport to="body">
     <div
       v-if="visible"
@@ -63,6 +64,7 @@
       </div>
     </div>
   </teleport>
+  </Suspense>
 </template>
 
 <script setup lang="ts">

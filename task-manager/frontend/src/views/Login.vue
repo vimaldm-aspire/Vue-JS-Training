@@ -1,37 +1,37 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="bg-white bg-gray-100 p-8 rounded-2xl shadow-lg max-w-md flex flex-col items-center">
-      <!-- Login heading -->
-      <h1 class="text-3xl font-bold mb-6 text-gray-800 w-1/2 text-center">Login</h1>
+    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Login</h1>
 
-      <!-- Form container -->
-      <form @submit.prevent="handleLogin" class="space-y-5 w-full">
-        <!-- Username input -->
+      <Form @submit="handleLogin" class="space-y-5 w-full">
+        <!-- Username -->
         <div>
-          <input
+          <Field
+            name="username"
             type="text"
-            v-model="username"
             placeholder="Username"
-            class="w-full px-4 py-2 border border-gray-1300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            rules="required"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-          <p v-if="usernameError" class="text-red-500 text-sm mt-1">{{ usernameError }}</p>
+          <ErrorMessage name="username" class="text-red-500 text-sm mt-1" />
         </div>
 
-        <!-- Password input -->
+        <!-- Password -->
         <div>
-          <input
+          <Field
+            name="password"
             type="password"
-            v-model="password"
+            rules="required"
             placeholder="Password"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
-          <p v-if="passwordError" class="text-red-500 text-sm mt-1">{{ passwordError }}</p>
+          <ErrorMessage name="password" class="text-red-500 text-sm mt-1" />
         </div>
 
-        <!-- Error message -->
+        <!-- Login error -->
         <p v-if="loginError" class="text-red-600 text-sm text-center">{{ loginError }}</p>
 
-        <!-- Submit button (normal width) -->
+        <!-- Submit -->
         <div class="flex justify-center">
           <button
             type="submit"
@@ -40,9 +40,8 @@
             Login
           </button>
         </div>
-      </form>
+      </Form>
 
-      <!-- Register link -->
       <p class="mt-6 text-center text-sm text-gray-600">
         Don’t have an account?
         <router-link to="/register" class="text-blue-500 hover:underline ml-1">Register here</router-link>
@@ -52,40 +51,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { Form, Field, ErrorMessage, defineRule, configure } from 'vee-validate';
+import { required } from '@vee-validate/rules';
 import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
-import axios from 'axios';
+import { useAuthStore } from '../store/auth';
+import { ref } from 'vue';
 
-const username = ref('');
-const password = ref('');
-const usernameError = ref('');
-const passwordError = ref('');
+// Setup rules
+defineRule('required', required);
+configure({
+  generateMessage: (context) => {
+    const messages: Record<string, string> = {
+      required: `${context.field} is required`,
+    };
+    return messages[context.rule?.name!] || 'Invalid field';
+  },
+  validateOnInput: true,
+});
+
 const loginError = ref('');
-
 const router = useRouter();
-const store = useStore();
+const authStore = useAuthStore();
 
-const handleLogin = async () => {
-  usernameError.value = '';
-  passwordError.value = '';
+const handleLogin = async (values: { username: string; password: string }) => {
   loginError.value = '';
 
-  // Basic client-side validation
-  if (!username.value) usernameError.value = 'Username is required';
-  if (!password.value) passwordError.value = 'Password is required';
-  if (usernameError.value || passwordError.value) return;
-
-  try {
-    const response = await axios.post('http://localhost:3001/api/login', {
-      username: username.value,
-      password: password.value,
-    });
-
-    store.dispatch('login', response.data.user);
+  const success = await authStore.login(values.username, values.password);
+  if (success) {
     router.push('/dashboard');
-  } catch (error) {
-    loginError.value = error.response?.data?.message || 'Login failed';
+  } else {
+    loginError.value = 'Invalid username or password';
   }
 };
 </script>

@@ -1,5 +1,6 @@
 <!-- components/Accordion.vue -->
 <template>
+<Suspense>
   <div class="mb-6 border border-gray-300 rounded-lg overflow-hidden">
     <!-- Header -->
     <div
@@ -24,8 +25,8 @@
       </div>
     </transition>
   </div>
+  </Suspense>
 </template>
-
 <script>
 export default {
   name: 'Accordion',
